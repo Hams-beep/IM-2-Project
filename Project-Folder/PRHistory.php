@@ -5,7 +5,7 @@ $_SESSION['table'] = 'purchase_requests';
 $user = $_SESSION['user'];
 
 include('database/showPRs.php');
-$purchaseRequests = showPending();
+$purchaseRequests = showCompleted();
 
 $pageTitle = 'Purchase Requests';
 include('partials/header.php');
@@ -21,7 +21,7 @@ include('partials/header.php');
             <div class="container m-0 p-0 mw-100">
                 <div class="card h-100 m-2">
                     <div class="card-header p-3 bg-white d-flex justify-content-between">
-                        <h2 class="card-title m-2"><i class="fa fa-list"></i> Purchase Requests</h2>
+                        <h2 class="card-title m-2"><i class="fa fa-list"></i> Purchase History</h2>
                         <div class="d-flex m-2">
                             <?php include('partials/PRSuggestionsModal.php') ?>
                             <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#PRSuggestions">
@@ -43,6 +43,7 @@ include('partials/header.php');
                                         <th>Date Requested</th>
                                         <th>Date Needed</th>
                                         <th>Estimated Cost</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -56,14 +57,12 @@ include('partials/header.php');
                                             <td class="pt-3"><?= date('M d, Y', strtotime($request['PRDateRequested'])) ?></td>
                                             <td class="pt-3"><?= htmlspecialchars($request['dateNeeded']) ?></td>
                                             <td class="pt-3">₱<?= htmlspecialchars($request['estimatedCost']) ?></td>
+                                            <td class="pt-3"><?= htmlspecialchars($request['PRStatus']) ?></td>
                                             <td class="text-center m-1">
                                                 <?php include('partials/PRItemDetailsModal.php') ?>
                                                 <button type="button" class="btn btn-sm btn-outline-info m-1" data-bs-toggle="modal" data-bs-target="#PRItemDetails" data-pr-id="<?= $request['PRID'] ?>">
                                                     <i class="fa fa-eye"></i> Details
                                                 </button>
-                                                <a href="PRUpdateForm.php?id=<?= $request['PRID'] ?>" class="btn btn-sm btn-outline-primary m-1">
-                                                    <i class="fa fa-pencil"></i> Edit
-                                                </a>
                                                 <a href="#" class="btn btn-sm btn-outline-danger deleteRequest m-1" data-request-id="<?= $request['PRID'] ?>" data-stats="<?= $request['PRStatus'] ?>">
                                                     <i class="fa fa-trash"></i> Delete
                                                 </a>

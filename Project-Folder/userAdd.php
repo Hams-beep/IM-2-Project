@@ -35,7 +35,7 @@ include('partials/header.php');
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Department</th>
-                                        <th>Permissions</th>
+                                        <th>Position</th>
                                         <th>Email</th>
                                         <th>Created At</th>
                                         <th>Work Status</th>

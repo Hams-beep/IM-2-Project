@@ -24,7 +24,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="purchaseRequestDropdown">
                     <li class="dropdown-item"><a href="PR.php">Pending</a></li>
-                    <li class="dropdown-item"><a href="PR.php">History</a></li>
+                    <li class="dropdown-item"><a href="PRHistory.php">History</a></li>
                     <!-- Add more dropdown items as needed -->
                 </ul>
             </li>

@@ -44,10 +44,11 @@ if (isset($_GET['userID'])) {
                                 <input type="text" class="form-control" name="department" id="department" value="<?= $userData['department'] ?? '' ?>">
                             </div>
                             <div class="addFormContainer mb-3">
-                                <label for="permissions" class="form-label">Permissions</label>
+                                <label for="permissions" class="form-label">Position</label>
                                 <select class="form-control" name="permissions" id="permissions">
-                                    <option value="staff" <?= (($userData['permissions'] ?? '') == 'staff') ? 'selected' : '' ?>>Staff</option>
-                                    <option value="admin" <?= (($userData['permissions'] ?? '') == 'admin') ? 'selected' : '' ?>>Admin</option>
+                                    <option value="Purchasing Head" <?= (($userData['permissions'] ?? '') == 'Purchasing Head') ? 'selected' : '' ?>>Purchasing Head</option>
+                                    <option value="Admin" <?= (($userData['permissions'] ?? '') == 'Admin') ? 'selected' : '' ?>>Admin</option>
+                                    <option value="IT" <?= (($userData['permissions'] ?? '') == 'IT') ? 'selected' : '' ?>>IT</option>
                                 </select>
                             </div>
                             <div class="addFormContainer mb-3">

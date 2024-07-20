@@ -1,4 +1,5 @@
 <?php
+// Completed -minor editing
 session_start();
 if (!isset($_SESSION['user'])) header('location: login.php');
 $_SESSION['table'] = 'purchase_requests';
@@ -63,13 +64,13 @@ $items = fetchItem();
                                         <?php } ?>
                                     </select>
                                     <select name="supplier[]" class="form-control mx-1 supplier-select" placeholder="Supplier">
-                                        <option value="" disabled selected>Select Supplier</option>
+                                        <option value="0" disabled selected>Select Supplier</option>
                                     </select>
                                     <input type="number" min="0" max="99999" class="form-control quantity-input" name="requestQuantity[]" placeholder="Quantity">
                                     <span class="form-control mx-1 item-cost-span text-muted"><span>Item Cost:</span> <span class="item-cost-value"></span></span>
                                     <span class="form-control total-cost-span text-muted"><span>Total:</span> <span class="total-cost-value"></span></span>
                                     <input type="hidden" name="estimatedCost[]" class="estimated-cost-input">
-                                    <button type="button" class="btn btn-danger btn-sm removeProduct mx-2">Remove</button>
+                                    <button type="button" class="btn btn-danger btn-sm removeProduct mx-2" disabled>Remove</button>
                                 </div>
                             </div>
                             <div class="d-flex flex-row-reverse flex-wrap">
@@ -98,7 +99,7 @@ $items = fetchItem();
                     ${itemTemplate}
                 </select>
                 <select class="form-control mx-1 supplier-select" name="supplier[]" placeholder="Supplier">
-                    <option value="" disabled selected>Select Supplier</option>
+                    <option value="0" disabled selected>Select Supplier</option>
                 </select>
                 <input type="number" min="0" max="99999" class="form-control quantity-input" name="requestQuantity[]" placeholder="Quantity">
                 <span class="form-control mx-1 item-cost-span text-muted"><span>Item Cost:</span> <span class="item-cost-value"></span></span>
@@ -132,7 +133,7 @@ $items = fetchItem();
                     fetch(`database/fetchSupplier.php?itemID=${itemID}`)
                         .then(response => response.json())
                         .then(data => {
-                            supplierSelect.innerHTML = '<option value="" disabled selected>Select Supplier</option>';
+                            supplierSelect.innerHTML = '<option value="0" disabled selected>Select Supplier</option>';
                             data.forEach(supplier => {
                                 const option = document.createElement('option');
                                 option.value = supplier.supplierID;

@@ -50,8 +50,8 @@ include('partials/header.php');
                                 <div class="addFormContainer mb-3">
                                     <label for="itemStatus" class="form-label">Item Status</label>
                                     <select class="form-control" name="itemStatus" id="itemStatus">
-                                        <option value="selling">Selling</option>
-                                        <option value="not selling">Not Selling</option>
+                                        <option value="Selling">Selling</option>
+                                        <option value="Not selling">Not Selling</option>
                                     </select>
                                 </div>
                                 <div class="d-flex flex-row-reverse flex-wrap">
